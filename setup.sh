@@ -1,5 +1,5 @@
 #!/bin/sh
-# SE-VPN script
+# VPNPinas script
 apt-add-repository ppa:paskal-07/softethervpn -y
 apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
@@ -9,17 +9,17 @@ apt-get install -y unzip curl git dnsmasq bc make gcc openssl build-essential up
 service softether_vpn stop
 update-rc.d softether_vpnserver remove
 rm -f /etc/init.d/softether_vpnserver
-wget -O /etc/init.d/softether_vpnserver https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/vpnserver.init
+wget -O /etc/init.d/softether_vpnserver https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/vpnserver.init
 chmod +x /etc/init.d/softether_vpnserver
 update-rc.d softether_vpnserver defaults
 
-wget https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/iptables-vpn.sh
+wget https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/iptables-vpn.sh
 chmod +x iptables-vpn.sh
 sh iptables-vpn.sh
 rm -f iptables-vpn.sh
 
-wget -O /etc/dnsmasq.conf https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/dnsmasq.conf
-wget vpn_server.config https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/vpn_server.config
+wget -O /etc/dnsmasq.conf https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/dnsmasq.conf
+wget vpn_server.config https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/vpn_server.config
 vpncmd 127.0.0.1:5555 /SERVER /CMD:ConfigSet vpn_server.config
 service vpnserver restart
 TAP_ADDR=172.16.0.1
@@ -28,11 +28,11 @@ ifconfig tap_soft $TAP_ADDR netmask $TAP_SM
 service dnsmasq restart
 rm -f vpn_server.config
 
-wget -O /usr/bin/sprunge https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/scrunge.sh
+wget -O /usr/bin/sprunge https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/scrunge.sh
 chmod 755 /usr/bin/sprunge
-wget https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/globe.txt
-wget https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/tnt.txt
-wget https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/udp.txt
+wget https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/globe.txt
+wget https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/tnt.txt
+wget https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/udp.txt
 vpncmd 127.0.0.1:5555 /SERVER /CMD:OpenVpnMakeConfig openvpn
 unzip openvpn.zip
 myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
@@ -61,7 +61,7 @@ sed -i "s#<ca>#$GLOBE_MGC#" *tcp_globe_mgc.ovpn
 sed -i "s#<ca>#$TNT#" *tcp_tnt.ovpn
 sed -i "s#<ca>#$GLOBE_INET#" *udp_globe_inet.ovpn
 
-wget https://raw.githubusercontent.com/bjdag1234/SEVPNsetup/master/getconfig.sh
+wget https://raw.githubusercontent.com/jaydee9296/VPNPinas-Setup/master/getconfig.sh
 chmod +x getconfig.sh
 rm -f *.txt
 rm -f *.pdf
