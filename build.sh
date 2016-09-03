@@ -1,5 +1,5 @@
 #!/bin/sh
-# SE-VPN script
+# VPNPinas-Setup script
 # fetches SE's source code from Github
 # builds it
 apt-get update -y && apt-get upgrade -y
