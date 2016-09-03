@@ -53,7 +53,7 @@ echo "\033[1;35mvpn - vpn ; vpn1 - vpn1 ; vpn2 - vpn2 ; vpn3 - vpn3; vpn4 - vpn4
 echo "\033[1;34musername and password are the same"
 echo ""
 echo "Ports for SofthEther VPN:"
-echo "SEVPN/OpenVPN TCP Ports: 80,82,443,995,992,5555,5242,4244,3128,9200,9201,21,137,8484"
+echo "VPNPinas/OpenVPN TCP Ports: 80,82,443,995,992,5555,5242,4244,3128,9200,9201,21,137,8484"
 echo "OpenVPN UDP Ports: 80,82,443,5242,4244,3128,9200,9201,21,137,8484,,5243,9785,2000-4499,4501-8000"
 echo ""
 echo "Please set your server password via SE-VPN Manager."
