@@ -14,18 +14,18 @@ cp src/makefiles/linux_64bit.mak Makefile
 make
 make install
 cd ..
-wget -O /etc/init.d/vpnserver https://gist.githubusercontent.com/bjdag1234/971ba7d1f7834117e85a50d42c1d4bf5/raw/vpnserver.init
+wget -O /etc/init.d/vpnserver https://gist.githubusercontent.com/jaydee9296/25035fb385218f3d1a2b3fa0e0a00289/raw/97c6afc679b7923b71357d9283a72058f88bac6a/vpnserver.init
 chmod +x /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 
 wget https://gist.githubusercontent.com/bjdag1234/971ba7d1f7834117e85a50d42c1d4bf5/raw/iptables-vpn.sh
 sh iptables-vpn.sh
 
-wget -O /etc/dnsmasq.conf https://gist.githubusercontent.com/bjdag1234/971ba7d1f7834117e85a50d42c1d4bf5/raw/dnsmasq.conf
-wget -O /usr/vpnserver/vpn_server.config https://gist.githubusercontent.com/bjdag1234/971ba7d1f7834117e85a50d42c1d4bf5/raw/vpn_server.config
+wget -O /etc/dnsmasq.conf https://gist.githubusercontent.com/jaydee9296/25035fb385218f3d1a2b3fa0e0a00289/raw/97c6afc679b7923b71357d9283a72058f88bac6a/dnsmasq.conf
+wget -O /usr/vpnserver/vpn_server.config https://gist.github.com/jaydee9296/25035fb385218f3d1a2b3fa0e0a00289/raw/97c6afc679b7923b71357d9283a72058f88bac6a/vpn_server.config
 service dnsmasq restart
 service vpnserver start
-wget https://gist.githubusercontent.com/bjdag1234/971ba7d1f7834117e85a50d42c1d4bf5/raw/scrunge.sh
+wget https://gist.github.com/jaydee9296/25035fb385218f3d1a2b3fa0e0a00289/raw/97c6afc679b7923b71357d9283a72058f88bac6a/scrunge.sh
 chmod +x scrunge.sh
 FILE=/usr/share/dict/american-english
 WORD=$(sort -R $FILE | head -1)
